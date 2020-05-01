@@ -2,7 +2,7 @@ package application;
 
 import application.domain.Answer;
 import application.domain.Criterion;
-import application.domain.Weight;
+import application.domain.type.Weight;
 import lombok.Getter;
 
 import java.util.HashMap;
@@ -34,6 +34,21 @@ public class Profile {
         for (Criterion criterion : criteria) {
             Answer answer = answers.get(criterion.getAnswer().getQuestion().getText());
             boolean match = criterion.getWeight() == Weight.DontCare || answer.match(criterion.getAnswer());
+
+            if (!match && criterion.getWeight() == Weight.MustMatch) {
+                kill = true;
+            }
+
+            if (match) {
+                score += criterion.getWeight().getValue();
+            }
+            anyMatches |= match;
         }
+
+        if (kill) {
+            return false;
+        }
+
+        return anyMatches;
     }
 }

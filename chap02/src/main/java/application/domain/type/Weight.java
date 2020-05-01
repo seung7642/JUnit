@@ -1,4 +1,4 @@
-package application.domain;
+package application.domain.type;
 
 import lombok.Getter;
 

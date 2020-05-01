@@ -30,4 +30,8 @@ public class Answer {
     public boolean match(int expected) {
         return question.match(expected, i);
     }
+
+    public boolean match(Answer otherAnswer) {
+        return question.match(i, otherAnswer.i);
+    }
 }

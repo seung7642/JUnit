@@ -1,17 +1,16 @@
 package application.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import application.domain.type.Weight;
+import lombok.Data;
 
-@Setter
-@Getter
+@Data
 public class Criterion {
 
-    private Weight weight;
     private Answer answer;
+    private Weight weight;
     private int score;
 
-    public Criterion(Weight weight, Answer answer) {
+    public Criterion(Answer answer, Weight weight) {
         this.weight = weight;
         this.answer = answer;
     }
