@@ -1,5 +1,6 @@
 package application.domain;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -8,8 +9,7 @@ import lombok.ToString;
  * Date : 2020.05.02
  * Time : 23:25
  */
-@Getter
-@ToString
+@Data
 public class Answer {
 
     private Question question;
