@@ -4,11 +4,9 @@ import lombok.Getter;
 import lombok.ToString;
 
 /**
- * 질문과 답을 담고 있는 클래스.
- *
- * @Author Seungho Lee
- * @Email seung7642@gmail.com
- * @Date 2020.04.28 23:15
+ * User : Seungho Lee ( seung7642@gmail.com )
+ * Date : 2020.05.02
+ * Time : 23:25
  */
 @Getter
 @ToString

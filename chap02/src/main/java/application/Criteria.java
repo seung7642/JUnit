@@ -1,14 +1,19 @@
 package application;
 
 import application.domain.Criterion;
-import lombok.Getter;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-@Getter
+/**
+ * User : Seungho Lee ( seung7642@gmail.com )
+ * Date : 2020.05.02
+ * Time : 23:25
+ */
+@Data
 public class Criteria implements Iterable<Criterion> {
 
     private List<Criterion> criteria = new ArrayList<>();

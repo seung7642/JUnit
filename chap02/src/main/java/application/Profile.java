@@ -3,12 +3,17 @@ package application;
 import application.domain.Answer;
 import application.domain.Criterion;
 import application.domain.type.Weight;
-import lombok.Getter;
+import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Getter
+/**
+ * User : Seungho Lee ( seung7642@gmail.com )
+ * Date : 2020.05.02
+ * Time : 23:25
+ */
+@Data
 public class Profile {
 
     private Map<String, Answer> answers = new HashMap<>();
@@ -29,8 +34,6 @@ public class Profile {
         boolean kill = false;
         boolean anyMatches = false;
 
-        // 이 코드가 왜 먹히지?
-        // criteria 객체 안에 필드를 굳이 가져오지 않아도, 알아서 판단하는건가?
         for (Criterion criterion : criteria) {
             Answer answer = answers.get(criterion.getAnswer().getQuestion().getText());
             boolean match = criterion.getWeight() == Weight.DontCare || answer.match(criterion.getAnswer());
