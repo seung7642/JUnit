@@ -1,5 +1,6 @@
 package application;
 
+import application.common.exception.InsufficientFundsException;
 import lombok.Data;
 
 /**
@@ -21,9 +22,9 @@ public class Account {
         balance += dollars;
     }
 
-    public void withdraw(int dollars) throws IllegalAccessException {
+    public void withdraw(int dollars) throws InsufficientFundsException {
         if (balance < dollars) {
-            throw new IllegalAccessException("balance only " + balance);
+            throw new InsufficientFundsException("balance only " + balance);
         }
         balance -= dollars;
     }

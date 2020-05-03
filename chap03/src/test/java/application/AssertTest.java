@@ -1,8 +1,11 @@
 package application;
 
+import application.common.exception.InsufficientFundsException;
 import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -15,6 +18,8 @@ import static org.junit.Assert.assertTrue;
  */
 public class AssertTest {
 
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
     private Account account;
 
     @Before
@@ -41,5 +46,13 @@ public class AssertTest {
     @Ignore
     public void assertFailure() {
         assertTrue(account.getName().startsWith("xyz"));
+    }
+
+    @Test
+    public void exceptionRule() {
+        thrown.expect(InsufficientFundsException.class);
+        thrown.expectMessage("balance only 0");
+
+        account.withdraw(100);
     }
 }
